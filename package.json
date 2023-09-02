@@ -1,0 +1,35 @@
+{
+  "name": "fieldeditor",
+  "version": "1.0.0",
+  "description": "Simple tool to handle html form.",
+  "main": "dist/fieldeditor.js",
+  "module": "dist/fieldeditor.esm.js",
+  "browser": "dist/fieldeditor.umd.js",
+  "scripts": {
+    "build": "rollup -c",
+    "test": "node test/spec",
+    "pretest": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShMazumder/fieldeditor.js.git"
+  },
+  "author": "S.h. Mazumder",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShMazumder/fieldeditor.js/issues"
+  },
+  "homepage": "https://github.com/ShMazumder/fieldeditor.js#readme",
+  "devDependencies": {
+    "@babel/core": "^7.22.11",
+    "@babel/preset-env": "^7.22.14",
+    "rollup": "^2.79.1",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0"
+  },
+  "files": [
+    "dist",
+    "src"
+  ]
+}
