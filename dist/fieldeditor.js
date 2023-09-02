@@ -33,6 +33,31 @@ function _createClass(Constructor, protoProps, staticProps) {
   });
   return Constructor;
 }
+function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
+}
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) return _arrayLikeToArray(arr);
+}
+function _iterableToArray(iter) {
+  if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter);
+}
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+  return arr2;
+}
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
 function _toPrimitive(input, hint) {
   if (typeof input !== "object" || input === null) return input;
   var prim = input[Symbol.toPrimitive];
@@ -66,14 +91,32 @@ var FieldEditor = /*#__PURE__*/function () {
       // Add your initialization logic here.
     }
   }, {
-    key: "update",
-    value: function update(element) {
-      console.log("Update plugin.");
+    key: "add",
+    value: function add(element) {
+      console.log("Add ".concat(element, " in plugin."));
       // Add your update logic here.
+      this.elements = [].concat(_toConsumableArray(this.elements), [element]);
+      return true;
+    }
+  }, {
+    key: "update",
+    value: function update(element, _update) {
+      console.log("Update ".concat(element, " with ").concat(_update, " in plugin."));
+      // Add your update logic here.
+      delete this.elements[element];
+      this.elements = [].concat(_toConsumableArray(this.elements), [_update]);
+      return true;
+    }
+  }, {
+    key: "show",
+    value: function show() {
+      console.log(this.elements);
+      return this.elements.length > 0;
     }
   }, {
     key: "health",
     value: function health(element) {
+      console.log(this.elements.includes(element));
       return element;
     }
   }]);
