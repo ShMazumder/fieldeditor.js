@@ -23,6 +23,7 @@ export class FieldEditor {
     // Add your update logic here.
   }
   health(element){
+    console.log(element);
     return element;
   }
 }
