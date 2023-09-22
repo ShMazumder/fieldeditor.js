@@ -85,6 +85,12 @@ var FieldEditor = /*#__PURE__*/function () {
     value: function init() {
       console.log("Init plugin.");
       // Add your initialization logic here.
+
+      if (this.settings.container) {
+        console.log("settings.container defined");
+      } else {
+        console.log("settings.container not defined");
+      }
     }
   }, {
     key: "add",

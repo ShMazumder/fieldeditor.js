@@ -17,6 +17,12 @@ export class FieldEditor {
   init() {
     console.log("Init plugin.");
     // Add your initialization logic here.
+
+    if (this.settings.container) {
+      console.log("settings.container defined");
+    } else {
+      console.log("settings.container not defined");
+    }
   }
   add(element) {
     console.log(`Add ${element} in plugin.`);
@@ -31,9 +37,9 @@ export class FieldEditor {
     this.elements = [...this.elements, update];
     return true;
   }
-  show(){
+  show() {
     console.log(this.elements);
-    return this.elements.length >0;
+    return this.elements.length > 0;
   }
   health(element) {
     console.log(this.elements.includes(element));
